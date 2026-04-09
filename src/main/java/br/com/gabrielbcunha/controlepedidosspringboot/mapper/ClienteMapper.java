@@ -4,12 +4,9 @@ import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteCreateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
 import br.com.gabrielbcunha.controlepedidosspringboot.entity.Cliente;
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel="spring")
 public interface ClienteMapper {
-
-    ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
 
     Cliente toEntity(ClienteCreateRequest clienteRequest);
 
