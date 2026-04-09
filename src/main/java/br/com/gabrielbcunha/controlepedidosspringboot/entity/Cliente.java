@@ -24,4 +24,6 @@ public class Cliente {
     @Column(nullable = false, length = 20)
     private String numeroContato;
 
+    @OneToMany(mappedBy="cliente")
+    private List<Pedido> pedidos;
 }
