@@ -26,7 +26,7 @@ public class Pedido {
     private Cliente cliente;
 
     @OneToMany(mappedBy="pedido")
-    private List<ItemPedido> itens;
+    private List<ItemPedido> itens = new ArrayList<>();
 
     @Column(name="valor_total", nullable = false, precision = 10, scale = 2)
     private BigDecimal valorTotalPedido;
