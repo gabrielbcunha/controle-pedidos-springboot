@@ -11,9 +11,4 @@ public class ClienteResponse {
     private String nome;
     private String numeroContato;
 
-    public ClienteResponse(Cliente cliente) {
-        this.id = cliente.getId();
-        this.nome = cliente.getNome();
-        this.numeroContato = cliente.getNumeroContato();
-    }
 }
