@@ -1,6 +1,5 @@
 package br.com.gabrielbcunha.controlepedidosspringboot.dto;
 
-import br.com.gabrielbcunha.controlepedidosspringboot.entity.Cliente;
 import lombok.Getter;
 import lombok.Setter;
 
