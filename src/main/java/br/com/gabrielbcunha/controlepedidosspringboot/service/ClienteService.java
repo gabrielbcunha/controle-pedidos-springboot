@@ -7,6 +7,8 @@ import br.com.gabrielbcunha.controlepedidosspringboot.mapper.ClienteMapper;
 import br.com.gabrielbcunha.controlepedidosspringboot.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ClienteService {
@@ -25,6 +27,11 @@ public class ClienteService {
         Cliente clienteSalvo = clienteRepository.save(novoCliente);
 
         return clienteMapper.toDto(clienteSalvo);
+    }
+
+    public List<ClienteResponse> listarTodosClientes() {
+        List<Cliente> clientes = clienteRepository.findAll();
+        return clienteMapper.toDtoList(clientes);
     }
 
 }
