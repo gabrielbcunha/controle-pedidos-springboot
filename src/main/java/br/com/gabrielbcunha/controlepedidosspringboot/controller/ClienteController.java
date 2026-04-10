@@ -6,6 +6,8 @@ import br.com.gabrielbcunha.controlepedidosspringboot.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/clientes")
@@ -20,6 +22,11 @@ public class ClienteController {
     @PostMapping()
     public ClienteResponse adicionarCliente(@Valid @RequestBody ClienteCreateRequest request) {
         return clienteService.adicionarCliente(request);
+    }
+
+    @GetMapping()
+    public List<ClienteResponse> listarClientes() {
+        return clienteService.listarTodosClientes();
     }
 
 }
