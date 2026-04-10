@@ -4,6 +4,8 @@ import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteCreateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
 import br.com.gabrielbcunha.controlepedidosspringboot.service.ClienteService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,13 +22,15 @@ public class ClienteController {
     }
 
     @PostMapping()
-    public ClienteResponse adicionarCliente(@Valid @RequestBody ClienteCreateRequest request) {
-        return clienteService.adicionarCliente(request);
+    public ResponseEntity<ClienteResponse> adicionarCliente(@Valid @RequestBody ClienteCreateRequest request) {
+        ClienteResponse clienteNovo = clienteService.adicionarCliente(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(clienteNovo);
     }
 
     @GetMapping()
-    public List<ClienteResponse> listarClientes() {
-        return clienteService.listarTodosClientes();
+    public ResponseEntity<List<ClienteResponse>> listarClientes() {
+        List<ClienteResponse> listaTodosClientes = clienteService.listarTodosClientes();
+        return ResponseEntity.ok(listaTodosClientes);
     }
 
 }
