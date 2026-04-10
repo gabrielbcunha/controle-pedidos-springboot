@@ -5,11 +5,15 @@ import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
 import br.com.gabrielbcunha.controlepedidosspringboot.entity.Cliente;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+
 @Mapper(componentModel="spring")
 public interface ClienteMapper {
 
     Cliente toEntity(ClienteCreateRequest clienteRequest);
 
     ClienteResponse toDto(Cliente cliente);
+
+    List<ClienteResponse> toDtoList(List<Cliente> clientesDto);
 
 }
