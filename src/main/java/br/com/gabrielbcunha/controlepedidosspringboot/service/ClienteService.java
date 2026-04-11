@@ -2,6 +2,7 @@ package br.com.gabrielbcunha.controlepedidosspringboot.service;
 
 import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteCreateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
+import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteUpdateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.entity.Cliente;
 import br.com.gabrielbcunha.controlepedidosspringboot.mapper.ClienteMapper;
 import br.com.gabrielbcunha.controlepedidosspringboot.repository.ClienteRepository;
@@ -45,4 +46,14 @@ public class ClienteService {
                 .orElseThrow(() -> new IllegalArgumentException("O Cliente procurado não existe"));
     }
 
+    public ClienteResponse modificarCliente(Long id, ClienteUpdateRequest clienteUpdateRequest) {
+        Optional<Cliente> cliente = clienteRepository.findById(id);
+        if (cliente.isPresent()) {
+            Cliente clienteAtualizado = clienteMapper.toEntity(clienteUpdateRequest);
+            Cliente clienteSalvo = clienteRepository.save(clienteAtualizado);
+            return clienteMapper.toDto(clienteSalvo);
+        } else {
+            throw new IllegalArgumentException("O Cliente a ser modificado deve existir");
+        }
+    }
 }

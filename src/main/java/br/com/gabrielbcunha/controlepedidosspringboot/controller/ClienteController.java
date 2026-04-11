@@ -2,6 +2,7 @@ package br.com.gabrielbcunha.controlepedidosspringboot.controller;
 
 import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteCreateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
+import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteUpdateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,12 @@ public class ClienteController {
     public ResponseEntity<ClienteResponse> buscarClientePorId(@PathVariable Long id) {
         ClienteResponse clientePorId = clienteService.buscarClientePorId(id);
         return ResponseEntity.ok(clientePorId);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<ClienteResponse> atualizarClientePorId(@PathVariable Long id, @RequestBody ClienteUpdateRequest request) {
+        ClienteResponse clienteModificado = clienteService.modificarCliente(id, request);
+        return ResponseEntity.ok(clienteModificado);
     }
 
 }
