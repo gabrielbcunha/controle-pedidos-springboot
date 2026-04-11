@@ -56,4 +56,14 @@ public class ClienteService {
             throw new IllegalArgumentException("O Cliente a ser modificado deve existir");
         }
     }
+
+    public void removerCliente(Long id) {
+        Optional<Cliente> cliente = clienteRepository.findById(id);
+        if (cliente.isPresent()) {
+            clienteRepository.deleteById(id);
+        } else {
+            throw new IllegalArgumentException("O Cliente a ser removido não existe");
+        }
+    }
+
 }
