@@ -33,4 +33,10 @@ public class ClienteController {
         return ResponseEntity.ok(listaTodosClientes);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ClienteResponse> buscarClientePorId(@PathVariable Long id) {
+        ClienteResponse clientePorId = clienteService.buscarClientePorId(id);
+        return ResponseEntity.ok(clientePorId);
+    }
+
 }
