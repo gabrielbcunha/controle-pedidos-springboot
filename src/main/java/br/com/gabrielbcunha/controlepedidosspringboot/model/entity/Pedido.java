@@ -1,5 +1,6 @@
 package br.com.gabrielbcunha.controlepedidosspringboot.model.entity;
 
+import br.com.gabrielbcunha.controlepedidosspringboot.model.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Pedido {
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy="pedido")
+    @OneToMany(mappedBy="pedido", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<ItemPedido> itens = new ArrayList<>();
 
     @Column(name="valor_total", nullable = false, precision = 10, scale = 2)
@@ -35,6 +36,7 @@ public class Pedido {
     @Column(name="data_pedido", nullable = false)
     private LocalDate dataPedido;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="status_pedido", nullable = false)
-    private String statusPedido;
+    private StatusPedido statusPedido;
 }
