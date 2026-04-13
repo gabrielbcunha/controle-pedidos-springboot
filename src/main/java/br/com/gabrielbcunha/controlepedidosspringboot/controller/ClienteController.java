@@ -1,8 +1,8 @@
 package br.com.gabrielbcunha.controlepedidosspringboot.controller;
 
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteCreateRequest;
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteUpdateRequest;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ClienteCreateRequest;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ClienteResponse;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ClienteUpdateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

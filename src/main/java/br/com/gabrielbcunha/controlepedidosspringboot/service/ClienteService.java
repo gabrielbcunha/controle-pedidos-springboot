@@ -1,9 +1,9 @@
 package br.com.gabrielbcunha.controlepedidosspringboot.service;
 
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteCreateRequest;
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteResponse;
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ClienteUpdateRequest;
-import br.com.gabrielbcunha.controlepedidosspringboot.entity.Cliente;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ClienteCreateRequest;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ClienteResponse;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ClienteUpdateRequest;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.entity.Cliente;
 import br.com.gabrielbcunha.controlepedidosspringboot.mapper.ClienteMapper;
 import br.com.gabrielbcunha.controlepedidosspringboot.repository.ClienteRepository;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package br.com.gabrielbcunha.controlepedidosspringboot.dto;
+package br.com.gabrielbcunha.controlepedidosspringboot.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

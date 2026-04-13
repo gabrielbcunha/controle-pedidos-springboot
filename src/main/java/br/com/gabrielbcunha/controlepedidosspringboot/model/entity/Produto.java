@@ -1,4 +1,4 @@
-package br.com.gabrielbcunha.controlepedidosspringboot.entity;
+package br.com.gabrielbcunha.controlepedidosspringboot.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

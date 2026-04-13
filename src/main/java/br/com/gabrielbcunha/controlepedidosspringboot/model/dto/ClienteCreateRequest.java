@@ -1,4 +1,4 @@
-package br.com.gabrielbcunha.controlepedidosspringboot.dto;
+package br.com.gabrielbcunha.controlepedidosspringboot.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

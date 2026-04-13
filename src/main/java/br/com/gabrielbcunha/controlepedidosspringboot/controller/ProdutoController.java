@@ -1,8 +1,8 @@
 package br.com.gabrielbcunha.controlepedidosspringboot.controller;
 
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ProdutoCreateRequest;
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ProdutoResponse;
-import br.com.gabrielbcunha.controlepedidosspringboot.dto.ProdutoUpdateRequest;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ProdutoCreateRequest;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ProdutoResponse;
+import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ProdutoUpdateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.service.ClienteService;
 import br.com.gabrielbcunha.controlepedidosspringboot.service.ProdutoService;
 import jakarta.validation.Valid;
