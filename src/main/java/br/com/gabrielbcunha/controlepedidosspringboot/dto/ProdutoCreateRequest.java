@@ -1,0 +1,21 @@
+package br.com.gabrielbcunha.controlepedidosspringboot.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+
+@Getter
+@Setter
+public class ProdutoCreateRequest {
+
+    @NotBlank(message="O nome do produto deve existir")
+    private String nome;
+
+    @NotBlank(message="O preço do produto deve existir e ser positivo")
+    @PositiveOrZero
+    private BigDecimal preco;
+
+}
