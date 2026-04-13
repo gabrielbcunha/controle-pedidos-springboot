@@ -39,4 +39,21 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     @Column(name="status_pedido", nullable = false)
     private StatusPedido statusPedido;
+
+    @PrePersist
+    public void definidoNaCriacao(){
+        this.dataPedido = LocalDate.now();
+
+        this.statusPedido = StatusPedido.PENDENTE;
+    }
+
+    public void calcularValorTotalPedido(){
+        if (!this.itens.isEmpty()){
+            this.valorTotalPedido = this.itens.stream()
+                    .map(ItemPedido::getSubTotal)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+        } else {
+            this.valorTotalPedido = BigDecimal.ZERO;
+        }
+    }
 }
