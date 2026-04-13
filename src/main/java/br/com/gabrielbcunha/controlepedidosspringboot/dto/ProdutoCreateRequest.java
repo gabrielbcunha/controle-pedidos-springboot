@@ -14,7 +14,7 @@ public class ProdutoCreateRequest {
     @NotBlank(message="O nome do produto deve existir")
     private String nome;
 
-    @NotBlank(message="O preço do produto deve existir e ser positivo")
+    @NotNull(message="O preço do produto deve existir e ser positivo")
     @PositiveOrZero
     private BigDecimal preco;
 
