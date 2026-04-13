@@ -17,11 +17,9 @@ import java.util.List;
 public class ProdutoController {
 
     private final ProdutoService produtoService;
-    private final ClienteService clienteService;
 
-    public ProdutoController(ProdutoService produtoService, ClienteService clienteService) {
+    public ProdutoController(ProdutoService produtoService) {
         this.produtoService = produtoService;
-        this.clienteService = clienteService;
     }
 
     @PostMapping()
@@ -50,7 +48,7 @@ public class ProdutoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ProdutoResponse> removerProdutoPorId(@PathVariable Long id){
-        clienteService.removerCliente(id);
+        produtoService.removerProduto(id);
         return ResponseEntity.noContent().build();
     }
 
