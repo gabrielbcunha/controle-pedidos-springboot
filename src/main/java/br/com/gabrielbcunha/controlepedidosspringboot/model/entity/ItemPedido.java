@@ -36,4 +36,13 @@ public class ItemPedido {
 
     @Column(name="sub_total", nullable=false, precision=10, scale=2)
     private BigDecimal subTotal;
+
+    public void calcularSubTotal(){
+        if (this.valorUnitario != null && this.quantidade > 0) {
+            BigDecimal qnt = new BigDecimal(this.quantidade);
+            this.subTotal = qnt.multiply(this.valorUnitario);
+        } else {
+            this.subTotal = BigDecimal.ZERO;
+        }
+    }
 }
