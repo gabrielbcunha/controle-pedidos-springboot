@@ -46,15 +46,21 @@ public class ClienteService {
                 .orElseThrow(() -> new IllegalArgumentException("O Cliente procurado não existe"));
     }
 
-    public ClienteResponse modificarCliente(Long id, ClienteUpdateRequest clienteUpdateRequest) {
-        Optional<Cliente> cliente = clienteRepository.findById(id);
-        if (cliente.isPresent()) {
-            Cliente clienteAtualizado = clienteMapper.toEntity(clienteUpdateRequest);
-            Cliente clienteSalvo = clienteRepository.save(clienteAtualizado);
-            return clienteMapper.toDto(clienteSalvo);
-        } else {
-            throw new IllegalArgumentException("O Cliente a ser modificado deve existir");
+    public ClienteResponse modificarCliente(Long id, ClienteUpdateRequest request) {
+
+        Cliente cliente = clienteRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("O Cliente a ser modificado não existe"));
+
+        if(request.getNome() != null) {
+            cliente.setNome(request.getNome());
         }
+
+        if(request.getNumeroContato() != null) {
+            cliente.setNumeroContato(request.getNumeroContato());
+        }
+
+        Cliente clienteModificado = clienteRepository.save(cliente);
+        return clienteMapper.toDto(clienteModificado);
     }
 
     public void removerCliente(Long id) {

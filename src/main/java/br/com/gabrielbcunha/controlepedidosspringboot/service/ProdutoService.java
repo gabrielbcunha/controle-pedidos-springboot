@@ -44,14 +44,19 @@ public class ProdutoService {
     }
 
     public ProdutoResponse modificarProduto (Long id, ProdutoUpdateRequest request){
-        Optional<Produto> produto = produtoRepository.findById(id);
-        if(produto.isPresent()){
-            Produto produtoAtualizado = produtoMapper.toEntity(request);
-            Produto produtoSalvo = produtoRepository.save(produtoAtualizado);
-            return produtoMapper.toDto(produtoSalvo);
-        } else {
-            throw new IllegalArgumentException("O Produto a ser modificado deve existir");
+        Produto produto = produtoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("O Produto a ser modificado não existe"));
+
+        if(request.getNome() != null){
+            produto.setNome(request.getNome());
         }
+
+        if(request.getPreco() != null){
+            produto.setPreco(request.getPreco());
+        }
+
+        Produto produtoSalvo = produtoRepository.save(produto);
+        return produtoMapper.toDto(produtoSalvo);
     }
 
     public void removerProduto(Long id){
