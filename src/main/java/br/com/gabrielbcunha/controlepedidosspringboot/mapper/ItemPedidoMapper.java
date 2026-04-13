@@ -5,6 +5,7 @@ import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ItemPedidoRespon
 import br.com.gabrielbcunha.controlepedidosspringboot.model.dto.ItemPedidoUpdateRequest;
 import br.com.gabrielbcunha.controlepedidosspringboot.model.entity.ItemPedido;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
@@ -15,8 +16,10 @@ public interface ItemPedidoMapper {
 
     ItemPedido toEntity(ItemPedidoUpdateRequest itemRequest);
 
+    @Mapping(source="produto.id", target="produtoId")
     ItemPedidoResponse toDto(ItemPedido itemPedido);
 
     List<ItemPedidoResponse> toDtoList(List<ItemPedido> itensPedidosDto);
 
+    List<ItemPedido> toEntityList(List<ItemPedidoCreateRequest> itensPedidos);
 }
